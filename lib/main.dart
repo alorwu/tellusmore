@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Method to send email to remote server
   Future<String> saveEmail() async {
     emailController.clear();
-    http.Response response = await http.post('https://tellusmore.fi/api/sendinfoemail.php', body:{'email', email});
+    http.Response response = await http.post('email-endpoint', body:{'email', email});
     return response.body;
   }
 
