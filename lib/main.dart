@@ -2,7 +2,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
-import 'dart:convert';
+
+import ".env.dart";
 
 void main() => runApp(MyApp());
 
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'TellusMore Mailer App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'TellUsMore'),
+      home: MyHomePage(title: 'TellusMore Mailer'),
     );
   }
 }
@@ -36,8 +37,13 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Method to send email to remote server
   Future<String> saveEmail() async {
     emailController.clear();
-    http.Response response = await http.post('https://tellusmore.fi/api/sendinfoemail.php', body:{'email', email});
-    return response.body;
+    var res = await http.post(
+      environment['baseUrl'],
+      body: {
+        'email': email
+      }
+    );
+    return res.body;
   }
 
   @override
@@ -69,28 +75,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: Image.asset(
-          "images/tellus.png",
+          "images/tellusmore.png",
           height: 200.0,
-          width: 200.0,
+          width: 250.0,
           fit: BoxFit.fill,
         ),
       ),
       SizedBox(
-        height: 30.0,
+        height: 10.0,
       ),
       Text(
-        "Welcome to TellusMore",
-        style: TextStyle(fontWeight: FontWeight.w700, color: Colors.blue, fontSize: 90.0),
+        "LEARN MORE ABOUT TELLUSMORE",
+        style: TextStyle(fontWeight: FontWeight.w700, color: Colors.blue, fontSize: 78.0),
       ),
       SizedBox(
-        height: 5.0,
+        height: 10.0,
       ),
-      Text(
-        "Volunteer to promote University of Oulu research",
-        style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black, fontSize: 50.0),
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 30.0),
+        child: Text(
+          "TellusMore is a new community-powered initiative that will empower the University of Oulu community to create science together! Sign up below for a short 3-part email series on how you can help and what’s in it for you.",
+          style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black, fontSize: 35.0),
+          textAlign: TextAlign.center,
+        ),
       ),
+
       SizedBox(
-        height: 20.0,
+        height: 10.0,
       )
     ],
   );
@@ -145,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
           alignment: Alignment.center,
           padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
           child: Text(
-            "Your privacy is our policy.",
+            "We will not share your email address with anyone. No SPAM.",
             style: TextStyle(fontWeight: FontWeight.w100, fontSize: 15.0),
           ),
         ),

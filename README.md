@@ -1,6 +1,6 @@
-# tellus
+# Tellus
 
-Simple email collection application
+Simple Flutter application to collect email addresses
 
 ## Getting Started
 
