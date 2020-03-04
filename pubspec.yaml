@@ -26,10 +26,15 @@ dependencies:
   email_validator: ^1.0.0
   http: ^0.12.0+4
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.7.3
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/tellusmore.png"
 
 
 # For information on the generic Dart part of this file, see the
