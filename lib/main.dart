@@ -117,14 +117,14 @@ class _MyHomePageState extends State<MyHomePage> {
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
       SizedBox(
-        height: 20.0,
+        height: 60.0,
       ),
       ClipRRect(
         borderRadius: BorderRadius.circular(10.0),
         child: Image.asset(
-          "images/tellusmore.png",
-          height: 103.25,
-          width: 265.0,
+          "images/tellusmorelogo.png",
+//          height: 103.25,
+          width: 628.0,
           fit: BoxFit.fill,
         ),
       ),
@@ -136,19 +136,19 @@ class _MyHomePageState extends State<MyHomePage> {
         style: TextStyle(fontWeight: FontWeight.w700, color: Colors.blue, fontSize: 75.0),
       ),
       SizedBox(
-        height: 20.0,
+        height: 10.0,
       ),
       Container(
         padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 30.0),
         child: Text(
-          "TellusMore is a new community-powered initiative that will empower the University of Oulu community to create science together! Sign up below for a short 3-part email series on how you can help and what’s in it for you.",
+          "TellusMore is a new community-powered initiative that will empower the University of Oulu community to create science together! Sign up below for a short email on how you can help and what’s in it for you.",
           style: TextStyle(fontWeight: FontWeight.w300, color: Colors.black, fontSize: 35.0),
           textAlign: TextAlign.center,
         ),
       ),
 
       SizedBox(
-        height: 30.0,
+        height: 20.0,
       )
     ],
   );
