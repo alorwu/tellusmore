@@ -123,8 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
         borderRadius: BorderRadius.circular(10.0),
         child: Image.asset(
           "images/tellusmorelogo.png",
-//          height: 103.25,
-          width: 628.0,
           fit: BoxFit.fill,
         ),
       ),
